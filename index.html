@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Xiaoming Chen</title>
+<meta name="description" content="Xiaoming Chen — MEng, University of Toronto. Research in wearable sensing, assistive medical devices, human factors, and robotics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f4f1e8;
+    --card: #faf8f2;
+    --text: #1c1b19;
+    --body: #3d3b36;
+    --muted: #8b877d;
+    --line: #cfcabd;
+    --rule: #1c1b19;
+    --accent: #8c2f24;
+    --band: #f6ecc9;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #17160f; --card: #1f1e16; --text: #ece8dc; --body: #cdc8ba; --muted: #8f8a7c;
+      --line: #3a382e; --rule: #ece8dc; --accent: #e08d7f; --band: #2d2a1a;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #17160f; --card: #1f1e16; --text: #ece8dc; --body: #cdc8ba; --muted: #8f8a7c;
+    --line: #3a382e; --rule: #ece8dc; --accent: #e08d7f; --band: #2d2a1a;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+  body {
+    margin: 0; background: var(--bg); color: var(--body);
+    font: 400 19px/1.7 "Crimson Pro", Georgia, "Times New Roman", serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--line); }
+  a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+  b, strong { color: var(--text); font-weight: 600; }
+  p { margin: 0 0 12px; }
+
+  .page { max-width: 908px; margin: 0 auto; padding: 40px 24px 72px; }
+
+  /* Masthead */
+  .masthead { border-top: 3px double var(--rule); border-top-width: 5px; padding: 30px 0 26px; }
+  .masthead .name {
+    font: 400 40px/1.1 "EB Garamond", Georgia, serif; letter-spacing: .03em; color: var(--text);
+  }
+  nav.top {
+    border-top: 1px solid var(--rule); border-bottom: 1px solid var(--line);
+    display: flex; align-items: center; gap: 44px; padding: 14px 0; overflow-x: auto; scrollbar-width: none;
+  }
+  nav.top::-webkit-scrollbar { display: none; }
+  nav.top a, nav.top button {
+    font: 400 17px "EB Garamond", Georgia, serif; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--muted); border: 0; background: none; padding: 0; cursor: pointer; white-space: nowrap;
+  }
+  nav.top a:hover, nav.top button:hover { color: var(--accent); }
+  nav.top button { margin-left: auto; }
+
+  /* Intro */
+  .intro { display: grid; grid-template-columns: 180px 1fr; gap: 40px; padding: 40px 0 36px; border-bottom: 1px solid var(--line); }
+  .portrait { width: 180px; aspect-ratio: 3 / 4; background: var(--line); display: block; object-fit: cover; }
+  .intro h1 { font: 400 32px/1.2 "EB Garamond", Georgia, serif; letter-spacing: .02em; color: var(--text); margin: 0; }
+  .intro .affil { font-style: italic; color: var(--muted); margin: 4px 0 14px; font-size: 17.5px; }
+  .links { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 26px; margin-top: 18px; }
+  .links a { color: var(--muted); font-size: 17.5px; letter-spacing: .02em; }
+  .links a:hover { color: var(--accent); }
+
+  /* Sections */
+  section { padding-top: 46px; }
+  h2 {
+    font: 600 14.5px "Crimson Pro", Georgia, serif; letter-spacing: .3em; text-transform: uppercase;
+    color: var(--text); margin: 0 0 18px; padding-bottom: 12px; border-bottom: 2px solid var(--rule);
+  }
+  .row { display: grid; grid-template-columns: 1fr auto; gap: 0 24px; margin-bottom: 10px; }
+  .row .when { color: var(--muted); font-style: italic; font-size: 17px; white-space: nowrap; }
+  .entry { margin-bottom: 18px; }
+  .entry .meta { font-style: italic; color: var(--muted); font-size: 17px; margin-bottom: 2px; }
+
+  /* Education cards */
+  .edu { display: grid; gap: 14px; }
+  .edu-card {
+    display: grid; grid-template-columns: 72px 1fr; gap: 24px; align-items: center;
+    background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 18px 22px;
+  }
+  .edu-card .logo { width: 72px; height: 72px; object-fit: contain; display: block; }
+  :root[data-theme="dark"] .edu-card .logo { background: #faf8f2; border-radius: 6px; padding: 4px; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .edu-card .logo { background: #faf8f2; border-radius: 6px; padding: 4px; }
+  }
+  .edu-card h3 { font: 600 20px/1.3 "Crimson Pro", Georgia, serif; color: var(--text); margin: 0; }
+  .edu-card h3 i { font-weight: 500; }
+  .edu-card .when { color: var(--muted); font-style: italic; font-size: 17px; }
+
+  .interest-list { margin: 0 0 14px; padding-left: 22px; }
+  .interest-list li { margin-bottom: 4px; }
+  .interest-list li::marker { color: var(--accent); }
+  .interests { color: var(--muted); font-style: italic; font-size: 17px; }
+  .interests::before { content: "Also: "; }
+  .interests span + span::before { content: "·"; margin: 0 10px; color: var(--muted); }
+
+
+  /* Publications */
+  .filters { display: flex; flex-wrap: wrap; gap: 22px; margin-bottom: 18px; }
+  .filters button {
+    font: 400 16px "EB Garamond", Georgia, serif; letter-spacing: .12em; text-transform: uppercase;
+    background: none; border: 0; border-bottom: 1px solid transparent; padding: 0 0 2px; cursor: pointer; color: var(--muted);
+  }
+  .filters button[aria-pressed="true"] { color: var(--accent); border-bottom-color: var(--accent); }
+  .pub-group h3 {
+    font: italic 500 18px "Crimson Pro", Georgia, serif; color: var(--muted); margin: 22px 0 8px;
+  }
+  .pub-group:first-of-type h3 { margin-top: 0; }
+  ol.pubs { margin: 0; padding-left: 26px; }
+  ol.pubs li { margin-bottom: 10px; padding-left: 4px; }
+  ol.pubs li::marker { color: var(--muted); font-size: 16px; }
+  .pub .t { color: var(--text); font-weight: 600; }
+  .pub .v { font-style: italic; }
+  .note { color: var(--accent); font-size: 15px; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; margin-left: 4px; }
+
+  a.pdf {
+    font-size: 14px; letter-spacing: .1em; border: 1px solid var(--accent); color: var(--accent);
+    padding: 0 8px; margin-left: 6px; white-space: nowrap;
+  }
+  a.pdf:hover { background: var(--accent); color: var(--bg); }
+
+  /* Fieldwork gallery */
+  .gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 18px; }
+  .gallery figure { margin: 0; }
+  .gallery .wide { grid-column: 1 / -1; }
+  .gallery a { border: 0; display: block; }
+  .gallery img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; background: var(--line); }
+  .gallery a:hover img { opacity: .9; }
+  .gallery figcaption { font-style: italic; color: var(--muted); font-size: 16px; margin-top: 6px; }
+  .yt { margin-top: 18px; }
+  .yt a { color: var(--accent); border-bottom-color: var(--accent); }
+
+  .skills p b { margin-right: 4px; }
+  .awards { margin: 0; padding-left: 22px; }
+
+  footer {
+    margin-top: 60px; padding-top: 18px; border-top: 3px double var(--rule); border-top-width: 5px;
+    color: var(--muted); font-size: 16px; font-style: italic; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+  }
+
+  @media (max-width: 700px) {
+    body { font-size: 18px; }
+    .page { padding: 24px 16px 56px; }
+    .masthead { padding: 22px 0 20px; }
+    .masthead .name { font-size: 32px; }
+    nav.top { gap: 24px; }
+    nav.top a, nav.top button { font-size: 15px; }
+    .intro { grid-template-columns: 1fr; gap: 22px; padding: 28px 0; }
+    .portrait { width: 160px; }
+    .row { grid-template-columns: 1fr; }
+    .edu-card { grid-template-columns: 56px 1fr; gap: 16px; padding: 14px 16px; }
+    .edu-card .logo { width: 56px; height: 56px; }
+    .gallery { grid-template-columns: 1fr; gap: 14px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="masthead">
+    <div class="name">Xiaoming Chen</div>
+  </header>
+
+  <nav class="top" aria-label="Sections">
+    <a href="#about">About</a>
+    <a href="#publications">Publications</a>
+    <a href="#research">Research</a>
+    <a href="#fieldwork">Field</a>
+    <a href="#experience">Experience</a>
+    <button id="themeBtn" aria-label="Toggle dark mode">Dark</button>
+  </nav>
+
+  <div class="intro" id="about">
+    <!-- 照片文件：photo.jpg（与 index.html 放在同一文件夹） -->
+    <img class="portrait" src="photo.jpg" alt="Portrait of Xiaoming Chen">
+    <div>
+      <h1>Xiaoming Chen</h1>
+      <div class="affil">MEng, Mechanical &amp; Industrial Engineering · University of Toronto, 2026</div>
+      <p>
+        I recently completed my MEng in Mechanical &amp; Industrial Engineering at the University of Toronto (October 2026).
+        I build <b>wearable and on-body interfaces</b> — sensing hardware worn in shoes, glasses,
+        and EEG headsets. I am interested in <b>physiological sensing</b> (EEG, gait, IMU), in <b>human perception and
+        sensory substitution</b> in extended reality, and in testing interactive devices with real users in real,
+        physical environments.
+      </p>
+      <p>
+        Since 2025 I have been working with <a href="https://www.eecg.utoronto.ca/~mann/" target="_blank" rel="noopener">Prof. Steve Mann</a>
+        at the University of Toronto, where I led the DiaShoe smart-shoe project and contribute to EEG analysis, XR sensing,
+        and vision–IMU fusion for smart glasses. Every Sunday, I also organize and take part in our volunteer activities and outdoor
+        experiments at Peter Street Basin Park in Toronto. With <a href="https://www.mie.utoronto.ca/faculty_staff/myrtede-alfred" target="_blank" rel="noopener">Prof. Myrtede Alfred</a>
+        and Hennick Bridgepoint Hospital (Sinai Health), I continue to study inpatient falls and design automatic braking for
+        wheelchairs and walkers.
+      </p>
+      <p>
+        <b>I am applying to PhD programs for Fall 2027.</b>
+      </p>
+      <div class="links">
+        <a href="mailto:xxc303@proton.me" title="xxc303@proton.me">Email</a>        <a href="https://github.com/Xiaoming0355" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/xxc303" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+
+
+  <section id="interests">
+    <h2>Research Interests</h2>
+    <ul class="interest-list">
+      <li><b>Wearable and on-body interfaces</b> — engineering sensing hardware worn on the body (shoes, glasses, EEG headsets).</li>
+      <li><b>Human perception and sensory substitution</b> in extended reality.</li>
+      <li><b>Physiological sensing</b> — EEG, gait, and IMU.</li>
+      <li><b>Interactive devices in the wild</b> — tested on real users in real, physical environments.</li>
+    </ul>
+    <p class="interests">
+      <span>Assistive &amp; Medical Devices</span><span>Human Factors in Healthcare</span><span>Multimodal Sensor Fusion</span><span>Robot Learning</span>
+    </p>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="edu">
+      <div class="edu-card">
+        <img class="logo" src="logos/uoft.svg" alt="University of Toronto crest">
+        <div>
+          <h3>MEng in <i>Mechanical &amp; Industrial Engineering</i></h3>
+          <div>University of Toronto · Toronto, Canada</div>
+          <div class="when">September 2025 – October 2026</div>
+        </div>
+      </div>
+      <div class="edu-card">
+        <img class="logo" src="logos/birmingham.svg" alt="University of Birmingham crest">
+        <div>
+          <h3>BEng in <i>Electronic and Electrical Engineering</i></h3>
+          <div>University of Birmingham · Birmingham, UK</div>
+          <div class="when">September 2023 – June 2024</div>
+        </div>
+      </div>
+      <div class="edu-card">
+        <img class="logo" src="logos/bjtu.png" alt="Beijing Jiaotong University emblem">
+        <div>
+          <h3>BEng in <i>Mechatronics Engineering</i></h3>
+          <div>Beijing Jiaotong University · Beijing, China · English-medium program</div>
+          <div class="when">September 2020 – June 2024</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="publications">
+    <h2>Publications</h2>
+    <div class="filters" role="group" aria-label="Filter publications">
+      <button data-filter="all" aria-pressed="true">All</button>
+      <button data-filter="first" aria-pressed="false">First author</button>
+      <button data-filter="journal" aria-pressed="false">Journal</button>
+      <button data-filter="conference" aria-pressed="false">Conference</button>
+    </div>
+
+    <div class="pub-group">
+      <h3>Journal manuscript under review</h3>
+      <ol class="pubs">
+        <li class="pub" id="pub-journal" data-type="journal" data-first="1">
+          <b>X. Chen</b>, M. Yang, S. Mann, et al.
+          <span class="t">On-Device Hand Keypoint Forecasting on Smart Glasses via Vision–IMU Fusion.</span>
+          <span class="v">IEEE Sensors Letters.</span> Under review (R2). <span class="note">First author</span>
+        </li>
+      </ol>
+    </div>
+
+    <div class="pub-group">
+      <h3>Conference presentations</h3>
+      <ol class="pubs">
+        <li class="pub" id="pub-hfes" data-type="conference" data-first="1">
+          <b>X. Chen</b>, et al.
+          <span class="t">Characterizing Brake-Related Inpatient Falls at a Rehabilitation Hospital: Incidence, Inter-Unit Variation, and Implications for Hardware Intervention Design.</span>
+          <span class="v">HFES International Symposium on Human Factors and Ergonomics in Health Care,</span> Orlando, FL, March 2027. <span class="note">First author · Oral</span>
+        </li>
+      </ol>
+    </div>
+
+    <div class="pub-group">
+      <h3>Accepted conference papers</h3>
+      <ol class="pubs">
+        <li class="pub" data-type="conference" data-first="1">
+          <b>X. Chen</b>, M. Yang, A. Vicol, Y. Xiao, R. Zeng, W. Li, S. Mann.
+          <span class="t">DiaShoe: A Smart Shoe for Diabetic Health-Monitoring with Gait and Nanoclimate Sensing.</span>
+          <span class="v">IEEE ICCE,</span> 2026. <span class="note">First author</span>
+          <a class="pdf" href="papers/ICCE2026_DiaShoe.pdf" target="_blank" rel="noopener">PDF</a>
+        </li>
+        <li class="pub" data-type="conference">
+          S. Mann, A. Vicol, N. Sabbour, G. L. Wodu, K. Monaragala, <b>X. Chen</b>, P. Aniolowski.
+          <span class="t">State-of-Float: From Balling to Future Space Travel.</span>
+          <span class="v">IEEE ICCE,</span> 2026.
+          <a class="pdf" href="papers/ICCE2026_State-of-Float.pdf" target="_blank" rel="noopener">PDF</a>
+        </li>
+        <li class="pub" data-type="conference">
+          Y. Xiao, W. Li, R. Zeng, A. Vicol, <b>X. Chen</b>, M. Yang, S. Mann.
+          <span class="t">ColourSenseXR: Helping the Hearing-Impaired Perceive Sound Through Colour.</span>
+          <span class="v">IEEE ICCE,</span> 2026.
+          <a class="pdf" href="papers/ICCE2026_ColourSenseXR.pdf" target="_blank" rel="noopener">PDF</a>
+        </li>
+        <li class="pub" data-type="conference">
+          A. Vicol, S. Mann, C. McGale, G. Bejar-Alvarez, M. Herrera Viyella, D. Zanjanpour, C. Park, <b>X. Chen</b>, X. Yang, B. Yang.
+          <span class="t">State-of-Flight: Wearable EEG and Motion Context During Flying or Floating.</span>
+          <span class="v">IEEE CBMS,</span> 2026 (full paper).
+          <a class="pdf" href="papers/CBMS2026_State-of-Flight.pdf" target="_blank" rel="noopener">PDF</a>
+        </li>
+        <li class="pub" data-type="conference">
+          A. Sher, A. Vicol, <b>X. Chen</b>, N. Kouyoumdjian, S. Mann.
+          <span class="t">Chirplet Analysis of Brain State During Snow and Cold Exposure.</span>
+          <span class="v">IEEE CBMS,</span> 2026 (short paper).
+          <a class="pdf" href="papers/CBMS2026_Chirplet-Brain-State.pdf" target="_blank" rel="noopener">PDF</a>
+        </li>
+        <li class="pub" data-type="conference">
+          A. Vicol, A. Sher, <b>X. Chen</b>, S. Mann.
+          <span class="t">Chirplet-Based Analysis of Gravitational-Wave Analysis: From Classical Chirplets to Family-Based Dictionary Representations.</span>
+          <span class="v">IEEE SPACE,</span> 2026.
+          <a class="pdf" href="papers/SPACE2026_Chirplet-Gravitational-Wave.pdf" target="_blank" rel="noopener">PDF</a>
+        </li>
+        <li class="pub" data-type="conference">
+          A. Vicol, X. Yang, B. Yang, <b>X. Chen</b>, M. Yang, K. Chaghouri, S. Mann.
+          <span class="t">MuseAI Focus: Evaluating AI-Driven Personalization in Attention Training using Wearable Consumer EEG.</span>
+          <span class="v">IEEE EMBC,</span> 2026.
+          <a class="pdf" href="papers/EMBC2026_MuseAI-Focus.pdf" target="_blank" rel="noopener">PDF</a>
+        </li>
+        <li class="pub" data-type="conference">
+          S. Mann, A. Vicol, <b>X. Chen</b>, J. Zhang, Y. Zhang, M. A. Herrera Viyella, K. Yuan, R. Adkisson.
+          <span class="t">Watermann (Soon May the Watermann Come): To Touch and Be Touched by Water.</span>
+          <span class="v">IEEE GEM,</span> 2026.
+          <a class="pdf" href="papers/GEM2026_Watermann.pdf" target="_blank" rel="noopener">PDF</a>
+        </li>
+        <li class="pub" data-type="conference">
+          R. Adkisson, A. Vicol, J. Zhang, D. Bros, Y. Zhang, <b>X. Chen</b>, S. Mann.
+          <span class="t">Boardmusic: Attention, Assemblage, and Improvisation on Water.</span>
+          <span class="v">IEEE GEM,</span> 2026.
+          <a class="pdf" href="papers/GEM2026_Boardmusic.pdf" target="_blank" rel="noopener">PDF</a>
+        </li>
+        <li class="pub" data-type="conference">
+          S. Mann, A. Vicol, <b>X. Chen</b>, J. Zhang, Y. Zhang, M. A. Herrera Viyella, M. Khan, R. Adkisson.
+          <span class="t">“Swiminalization” and (K)No(t)-Swimming: A Humorous Interactive Game for Liminalizing and Decriminalizing Swimming.</span>
+          <span class="v">IEEE GEM,</span> 2026.
+          <a class="pdf" href="papers/GEM2026_Swiminalization.pdf" target="_blank" rel="noopener">PDF</a>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="research">
+    <h2>Selected Research</h2>
+
+    <div class="entry" id="res-brake">
+      <div class="meta">Sep 2025 – Present · University of Toronto &amp; Hennick Bridgepoint Hospital, Sinai Health · <a href="https://www.mie.utoronto.ca/faculty_staff/myrtede-alfred" target="_blank" rel="noopener">Prof. Myrtede Alfred</a></div>
+      <p><b>Automatic Braking for Wheelchairs and Walkers.</b>
+      Interviewed patients and clinical staff, observed patient mobility, and classified 755 inpatient fall reports to identify
+      user needs and human factors in mobility and transfers. Analyzed existing wheelchair and walker designs and developed
+      automatic braking and safety-feedback concepts. Evaluated brake engagement and release, mechanical reliability, and ease
+      of operation at the prototype and system levels.</p>
+    </div>
+
+    <div class="entry" id="res-diashoe">
+      <div class="meta">Sep 2025 – Present · Vice President, MannLab, University of Toronto · Prof. Steve Mann</div>
+      <p><b>Wearable Sensing, Virtual and Extended Reality.</b>
+      Research in wearable sensing, water-based human–computer interaction (Water-HCI), and XR. Led the DiaShoe smart-shoe
+      project and contributed to EEG signal analysis, XR sensing, and vision–IMU fusion for smart glasses. Every Sunday,
+      organize and take part in volunteer activities and outdoor experiments with
+      <a href="https://www.eecg.utoronto.ca/~mann/" target="_blank" rel="noopener">Prof. Steve Mann</a> at Peter Street
+      Basin Park — coordinating fieldwork, deploying equipment, and collecting data to
+      validate wearable devices in the field. First author or co-author on ten papers accepted at IEEE ICCE, CBMS, EMBC, SPACE,
+      and GEM 2026.</p>
+    </div>
+
+    <div class="entry">
+      <div class="meta">Sep 2025 – Jan 2026 · University of Toronto research project</div>
+      <p><b>Vision-Language-Action Models for Robot Control.</b>
+      Designed a retrieval-augmented control framework integrating VLA models for robot manipulation. Converted robot datasets
+      from HDF5 to LeRobot format, deployed pretrained transformer models in Docker, and fine-tuned multimodal policies for
+      specialized manipulation tasks.</p>
+    </div>
+
+    <div class="entry">
+      <div class="meta">Jan – Jun 2023 · Ministry of Education project, China</div>
+      <p><b>Omnidirectional Rescue Robot.</b>
+      Developed an omnidirectional mobile robot using RTAB-based 3D perception to detect and avoid obstacles. Implemented
+      object recognition in TensorFlow and motion planning for a six-axis robotic arm. Designed a dual-controller architecture
+      (Jetson Nano and STM32) integrating LiDAR and IMU data for navigation.</p>
+    </div>
+
+    <div class="entry">
+      <div class="meta">Sep 2022 – Feb 2023 · BYD data collaboration</div>
+      <p><b>Electric Vehicle Thermal Management.</b>
+      Led a three-member team designing an integrated thermal management system for an electric vehicle with multiple heat
+      sources. Built reduced-order thermal models from flow-field temperature data and developed a model predictive control
+      strategy to coordinate thermal regulation.</p>
+    </div>
+  </section>
+
+  <section id="fieldwork">
+    <h2>In the Field</h2>
+    <p>
+      Every Sunday, I organize and take part in volunteer activities and outdoor experiments with
+      <a href="https://www.eecg.utoronto.ca/~mann/" target="_blank" rel="noopener">Prof. Steve Mann</a> at
+      Peter Street Basin Park in Toronto — testing wearable devices and water-based interfaces on real people, in real water.
+      In winter, we also run cold-exposure experiments in the snow on the University of Toronto campus. Videos of these sessions are on
+      <a href="https://www.youtube.com/@hydraulist" target="_blank" rel="noopener">YouTube (@hydraulist)</a>.
+    </p>
+    <div class="gallery">
+      <figure class="wide">
+        <a href="field/basin-team.jpg" target="_blank" rel="noopener"><img src="field/basin-team.jpg" alt="The team with surfboards and a paddleboard beside Peter Street Basin" loading="lazy"></a>
+        <figcaption>The Sunday team at Peter Street Basin Park, Toronto.</figcaption>
+      </figure>
+      <figure>
+        <a href="field/water-floats.jpg" target="_blank" rel="noopener"><img src="field/water-floats.jpg" alt="Two participants paddling on inflatable floats in the basin" loading="lazy"></a>
+        <figcaption>On-water sessions in the basin.</figcaption>
+      </figure>
+      <figure>
+        <a href="field/water-ball.jpg" target="_blank" rel="noopener"><img src="field/water-ball.jpg" alt="Participants on floats playing with a giant ball in the basin" loading="lazy"></a>
+        <figcaption>Interactive water games with volunteers.</figcaption>
+      </figure>
+      <figure>
+        <a href="field/snow-1.jpg" target="_blank" rel="noopener"><img src="field/snow-1.jpg" alt="Participants lying in snow on the University of Toronto campus during a cold-exposure experiment" loading="lazy"></a>
+        <figcaption>Cold-exposure experiment on the University of Toronto campus.</figcaption>
+      </figure>
+      <figure>
+        <a href="field/snow-2.jpg" target="_blank" rel="noopener"><img src="field/snow-2.jpg" alt="Participants in the snow wearing XR headsets during a cold-exposure experiment on the University of Toronto campus" loading="lazy"></a>
+        <figcaption>Cold-exposure experiment with XR headsets, University of Toronto campus.</figcaption>
+      </figure>
+    </div>
+    <p class="yt"><a href="https://www.youtube.com/@hydraulist" target="_blank" rel="noopener">▶ Watch more on YouTube</a></p>
+  </section>
+
+  <section id="experience">
+    <h2>Internships</h2>
+    <div class="entry">
+      <div class="meta">Mar – May 2025 · Vehicle Performance Intern</div>
+      <p><b>BAIC R&amp;D Center.</b>
+      Modified structural components in HyperMesh and CATIA as part of performance tuning for seven vehicle models. Supported
+      benchmarking and noise, vibration, and harshness testing at vehicle and subsystem levels.</p>
+    </div>
+    <div class="entry">
+      <div class="meta">Sep – Dec 2024 · Research Intern, Autonomous Drone &amp; Vehicle Lab</div>
+      <p><b>Zhejiang University.</b>
+      Designed and debugged embedded hardware and developed STM32 modules for signal acquisition and preprocessing; trained,
+      tested, and deployed models on embedded hardware. Modeled robotic grippers in SolidWorks and evaluated designs using
+      finite element analysis and motion simulation.</p>
+    </div>
+  </section>
+
+  <section id="skills" class="skills">
+    <h2>Technical Skills</h2>
+    <p><b>Mechanical Design &amp; Prototyping ·</b> SolidWorks, CATIA, HyperMesh, finite element analysis, mechanism design, electromechanical actuation, rapid prototyping</p>
+    <p><b>Embedded Systems &amp; Hardware ·</b> STM32, Arduino, Jetson Nano, motor control, sensor integration, IMUs, LiDAR, pressure sensors, data acquisition</p>
+    <p><b>Electronics &amp; Circuit Design ·</b> Cadence (EDA), electronic circuit design, hardware–software integration, embedded control systems</p>
+    <p><b>Programming &amp; Simulation ·</b> Python, C/C++, MATLAB/Simulink, TensorFlow, Docker, Git, multimodal sensor fusion</p>
+  </section>
+
+  <section id="awards">
+    <h2>Awards</h2>
+    <ul class="awards">
+      <li>University of Birmingham Honorary Scholarship</li>
+      <li>Beijing Jiaotong University Study Abroad Scholarship</li>
+      <li>First-Class Literary Scholarship</li>
+    </ul>
+  </section>
+
+  <footer>
+    <span>© 2026 Xiaoming Chen</span>
+    <span>Last updated November 2026</span>
+  </footer>
+</div>
+
+<script>
+  // Theme toggle (remembered per browser)
+  (function () {
+    var root = document.documentElement, btn = document.getElementById('themeBtn');
+    function isDark() {
+      return root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+    function label() { btn.textContent = isDark() ? 'Light' : 'Dark'; }
+    try { var saved = localStorage.getItem('theme'); if (saved) root.dataset.theme = saved; } catch (e) {}
+    label();
+    matchMedia('(prefers-color-scheme: dark)').addEventListener('change', label);
+    btn.addEventListener('click', function () {
+      root.dataset.theme = isDark() ? 'light' : 'dark';
+      try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
+      label();
+    });
+  })();
+
+  // Publication filters
+  (function () {
+    var buttons = document.querySelectorAll('.filters button');
+    buttons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var f = btn.dataset.filter;
+        buttons.forEach(function (b) { b.setAttribute('aria-pressed', b === btn); });
+        document.querySelectorAll('.pub').forEach(function (p) {
+          var show = f === 'all' || (f === 'first' ? p.dataset.first === '1' : p.dataset.type === f);
+          p.style.display = show ? '' : 'none';
+        });
+        document.querySelectorAll('.pub-group').forEach(function (g) {
+          var any = Array.prototype.some.call(g.querySelectorAll('.pub'), function (p) { return p.style.display !== 'none'; });
+          g.style.display = any ? '' : 'none';
+        });
+      });
+    });
+  })();
+</script>
+</body>
+</html>
